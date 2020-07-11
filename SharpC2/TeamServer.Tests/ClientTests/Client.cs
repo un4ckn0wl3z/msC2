@@ -51,5 +51,17 @@ namespace TeamServer.Tests.ClientTests
             Assert.Equal(ClientAuthenticationResult.AuthResult.InvalidRequest, result.Result);
             Assert.Null(result.Token);
         }
+
+
+        [Fact]
+        public void _05_GetConnectedClients()
+        {
+            var request = new ClientAuthenticationRequest { Nick = "un4", Password = "anuwat1337" };
+            Controllers.ClientController.ClientLogin(request);
+            var result = Controllers.ClientController.GetConnectedClient();
+
+            Assert.Equal(new List<string> { "un4", "Anuwat" }, result);
+        }
+
     }
 }
