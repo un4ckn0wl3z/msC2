@@ -29,3 +29,15 @@ C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\NSwag.Generation.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\NSwag.Generation.AspNetCore.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.csproj.CopyComplete
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.csproj.CoreCompileInputs.cache
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.MvcApplicationPartsAssemblyInfo.cache
