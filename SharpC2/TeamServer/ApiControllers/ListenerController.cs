@@ -39,7 +39,7 @@ namespace TeamServer.ApiControllers
         }
 
         // DELETE api/<ListenerController>/5
-        [HttpDelete("{id}/type/{type}")]
+        [HttpDelete("{id}/Type/{type}")]
         public void StopListener(string id, ListenerType type)
         {
             Program.ServerController.ListenerControllerBase.StopListener(id, type);
