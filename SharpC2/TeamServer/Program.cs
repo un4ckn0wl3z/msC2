@@ -13,6 +13,13 @@ namespace TeamServer
     {
         public static void Main(string[] args)
         {
+
+            if (args.Length < 1)
+            {
+                Console.Error.WriteLine("No server password provided");
+                return;
+            }
+
             CreateHostBuilder(args).Build().Run();
         }
 
