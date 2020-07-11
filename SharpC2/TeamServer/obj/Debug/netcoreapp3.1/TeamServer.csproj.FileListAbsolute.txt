@@ -7,7 +7,6 @@ C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\TeamServer.runtimeconfig.dev.json
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\TeamServer.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\TeamServer.pdb
-C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.csprojAssemblyReference.cache
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.AssemblyInfoInputs.cache
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.AssemblyInfo.cs
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.RazorTargetAssemblyInfo.cache
@@ -41,3 +40,4 @@ C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.csproj.CoreCompileInputs.cache
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.csprojAssemblyReference.cache

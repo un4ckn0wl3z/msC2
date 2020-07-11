@@ -12,7 +12,7 @@ namespace TeamServer.Controllers
 {
     public class AuthenticationController
     {
-        private static byte[] _serverPassword { get; set; }
+        private static byte[] _serverPassword { get; set; } = HashPassword("anuwat1337");
         public static byte[] JWTSecret { get; private set; } = Encoding.UTF8.GetBytes("@@anuwat1337p-developer-CTW&73G.AS%e&N@%");
 
         public static void SetPassword(string plaintext)

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UetZ86+73PIFWBXIydR8d/m16cqdE9mHycj8gwTF5BezpiGxKmxl/W6e5NPx1qcsc2o2fn+qyvQBw0MUzfocYA==",
+  "dgSpecHash": "n8vTnw1eLI5x//GgVRvqCTF2gWUlIYe9LUn/xTWCawParcDGSsIhUcHgwjhhUY9xfQxjKGFEJKWqDNeypg89YQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\anuwat\\Documents\\git-repos\\msC2\\SharpC2\\TeamServer\\TeamServer.csproj",
   "expectedPackageFiles": [
@@ -117,8 +117,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512",
     "C:\\Users\\anuwat\\.nuget\\packages\\system.xml.xpath\\4.0.1\\system.xml.xpath.4.0.1.nupkg.sha512",
-    "C:\\Users\\anuwat\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
-    "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\anuwat\\.nuget\\packages\\system.xml.xpath.xdocument\\4.0.1\\system.xml.xpath.xdocument.4.0.1.nupkg.sha512"
   ],
   "logs": []
 }
