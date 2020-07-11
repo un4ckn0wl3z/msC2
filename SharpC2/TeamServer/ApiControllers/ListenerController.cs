@@ -26,16 +26,16 @@ namespace TeamServer.ApiControllers
 
         // POST api/<ListenerController>
         [HttpPost("http")]
-        public void NewHttpListener([FromBody] NewHttpListenerRequest request)
+        public ListenerHttp NewHttpListener([FromBody] NewHttpListenerRequest request)
         {
-            Program.ServerController.ListenerControllerBase.StartHttpListener(request);
+            return Program.ServerController.ListenerControllerBase.StartHttpListener(request);
         }
 
         // POST api/<ListenerController>
         [HttpPost("tcp")]
-        public void NewTcpListener([FromBody] NewTcpListenerRequest request)
+        public ListenerTcp NewTcpListener([FromBody] NewTcpListenerRequest request)
         {
-            Program.ServerController.ListenerControllerBase.StartTcpListener(request);
+            return Program.ServerController.ListenerControllerBase.StartTcpListener(request);
         }
 
         // DELETE api/<ListenerController>/5

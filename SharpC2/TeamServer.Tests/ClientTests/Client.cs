@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TeamServer.Listeners;
 using TeamServer.Models;
 using Xunit;
 
@@ -8,45 +9,49 @@ namespace TeamServer.Tests.ClientTests
 {
     public class Client
     {
-        [Fact]
-        public void _01_SuccessfulClientLogin()
-        {
-            var request = new ClientAuthenticationRequest { Nick = "Anuwat", Password = "anuwat1337" };
 
-            var result = Controllers.ClientController.ClientLogin(request);
+        public Client()
+        {
+            new TestClient();
+        }
+
+
+        [Fact]
+        public async void _01_SuccessfulClientLogin()
+        {
+            var result = await TestClient.ClientLogin(TeamServer.Helpers.GeneratePsudoRandomString(6), "anuwat1337");
 
             Assert.Equal(ClientAuthenticationResult.AuthResult.LoginSucess, result.Result);
             Assert.NotNull(result.Token);
         }
 
         [Fact]
-        public void _02_BadPasswordClientLogin()
+        public async void _02_BadPasswordClientLogin()
         {
-            var request = new ClientAuthenticationRequest { Nick = "Anuwat", Password = "anuwat1336" };
-
-            var result = Controllers.ClientController.ClientLogin(request);
+            var result = await TestClient.ClientLogin(TeamServer.Helpers.GeneratePsudoRandomString(6), "anuwat1995");
 
             Assert.Equal(ClientAuthenticationResult.AuthResult.BadPassword, result.Result);
             Assert.Null(result.Token);
         }
 
         [Fact]
-        public void _03_NickInUse()
+        public async void _03_NickInUse()
         {
-            var request = new ClientAuthenticationRequest { Nick = "Anuwat", Password = "anuwat1337" };
+            var user = TeamServer.Helpers.GeneratePsudoRandomString(6);
+            await TestClient.ClientLogin(user, "anuwat1337");
+            var result = await TestClient.ClientLogin(user, "anuwat1337");
 
-            var result = Controllers.ClientController.ClientLogin(request);
 
             Assert.Equal(ClientAuthenticationResult.AuthResult.NickInUse, result.Result);
             Assert.Null(result.Token);
         }
 
-        [Fact]
-        public void _04_InvalidRequest()
+        [Theory]
+        [InlineData("anuwat", "")]
+        [InlineData("", "password")]
+        public async void _04_InvalidRequest(string nick, string pass)
         {
-            var request = new ClientAuthenticationRequest { Nick = "", Password = "" };
-
-            var result = Controllers.ClientController.ClientLogin(request);
+            var result = await TestClient.ClientLogin(nick, pass);
 
             Assert.Equal(ClientAuthenticationResult.AuthResult.InvalidRequest, result.Result);
             Assert.Null(result.Token);
@@ -54,13 +59,17 @@ namespace TeamServer.Tests.ClientTests
 
 
         [Fact]
-        public void _05_GetConnectedClients()
+        public async void _05_GetConnectedClients()
         {
-            var request = new ClientAuthenticationRequest { Nick = "un4", Password = "anuwat1337" };
-            Controllers.ClientController.ClientLogin(request);
-            var result = Controllers.ClientController.GetConnectedClient();
+            var user = TeamServer.Helpers.GeneratePsudoRandomString(6);
+            await TestClient.ClientLogin(user, "anuwat1337");
+            await TestClient.ClientLogin("Anuwat", "anuwat1337");
 
-            Assert.Equal(new List<string> { "un4", "Anuwat" }, result);
+            var apiReq = await TestClient.HttpClient.GetAsync("api/Client");
+            var resultAsync = await apiReq.Content.ReadAsStringAsync();
+            var result = Helpers.Deserialise<IEnumerable<string>>(resultAsync);
+
+            Assert.Contains(result, n => n == user);
         }
 
     }

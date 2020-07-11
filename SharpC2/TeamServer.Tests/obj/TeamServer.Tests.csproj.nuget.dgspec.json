@@ -45,6 +45,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.TestHost": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "xunit": {
               "target": "Package",
               "version": "[2.3.1, )"

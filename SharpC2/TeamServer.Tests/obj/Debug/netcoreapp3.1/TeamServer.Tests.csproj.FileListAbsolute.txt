@@ -16,7 +16,6 @@ C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netc
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\TeamServer.Tests.pdb
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\TeamServer.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\TeamServer.pdb
-C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\obj\Debug\netcoreapp3.1\TeamServer.Tests.csproj.CoreCompileInputs.cache
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\obj\Debug\netcoreapp3.1\TeamServer.Tests.csproj.CopyComplete
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\obj\Debug\netcoreapp3.1\TeamServer.Tests.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\obj\Debug\netcoreapp3.1\TeamServer.Tests.pdb
@@ -117,3 +116,6 @@ C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netc
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.TestHost.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer.Tests\obj\Debug\netcoreapp3.1\TeamServer.Tests.csproj.CoreCompileInputs.cache

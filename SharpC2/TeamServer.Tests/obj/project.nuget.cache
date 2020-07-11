@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XDWVr/Yw9IzQsgI8DvNCTqNdMamab3mCLMf0R4ug2mqV2iBS6mX3N5Pf3dIIKOJBaVwf8doDsz2IwjWfWZItcA==",
+  "dgSpecHash": "CAPXi5ZopSL2qPA2sfxUw7e/U0Y9RWjQRIuDBT/ZSnfve6fw+YRhBemfXLKE+tA0cfHWVAWtJ5FyWHNE6Xg0IQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\anuwat\\Documents\\git-repos\\msC2\\SharpC2\\TeamServer.Tests\\TeamServer.Tests.csproj",
   "expectedPackageFiles": [
@@ -21,6 +21,7 @@
     "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.aspnetcore.routing\\1.0.3\\microsoft.aspnetcore.routing.1.0.3.nupkg.sha512",
     "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\1.0.3\\microsoft.aspnetcore.routing.abstractions.1.0.3.nupkg.sha512",
     "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.aspnetcore.staticfiles\\1.0.2\\microsoft.aspnetcore.staticfiles.1.0.2.nupkg.sha512",
+    "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.aspnetcore.testhost\\3.1.5\\microsoft.aspnetcore.testhost.3.1.5.nupkg.sha512",
     "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\1.0.2\\microsoft.aspnetcore.webutilities.1.0.2.nupkg.sha512",
     "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\anuwat\\.nuget\\packages\\microsoft.dotnet.internalabstractions\\1.0.0\\microsoft.dotnet.internalabstractions.1.0.0.nupkg.sha512",
@@ -105,6 +106,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\anuwat\\.nuget\\packages\\system.io.pipelines\\4.7.1\\system.io.pipelines.4.7.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",
