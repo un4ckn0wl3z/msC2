@@ -19,6 +19,7 @@
     },
     "TeamServer": {
       "commandName": "Project",
+      "commandLineArgs": "anuwat1337",
       "launchBrowser": true,
       "launchUrl": "swagger/index.html",
       "environmentVariables": {

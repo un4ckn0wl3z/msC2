@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using NSwag.Generation.Processors.Security;
 using TeamServer.Controllers;
 
@@ -29,7 +31,13 @@ namespace TeamServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(j =>
+            {
+                j.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                j.SerializerSettings.Converters.Add(new StringEnumConverter());
+            });
+
+
             services.AddSwaggerDocument(c =>
             {
                 c.PostProcess = d =>
@@ -57,7 +65,8 @@ namespace TeamServer
             {
                 a.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 a.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(j => {
+            }).AddJwtBearer(j =>
+            {
                 j.RequireHttpsMetadata = false;
                 j.SaveToken = true;
                 j.TokenValidationParameters = new TokenValidationParameters

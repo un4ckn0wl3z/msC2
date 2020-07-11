@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TeamServer.Controllers;
 
 namespace TeamServer
 {
@@ -19,6 +20,8 @@ namespace TeamServer
                 Console.Error.WriteLine("No server password provided");
                 return;
             }
+
+            AuthenticationController.SetPassword(args[0]);
 
             CreateHostBuilder(args).Build().Run();
         }
