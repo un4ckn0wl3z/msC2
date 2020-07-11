@@ -10,9 +10,9 @@ namespace TeamServer.Controllers
 {
     public class ListenerController
     {
-        public List<HTTPCommModule> HTTPListeners { get; set; }
+        public List<HTTPCommModule> HTTPListeners { get; set; } = new List<HTTPCommModule>();
 
-        public List<ListenerTcp> TCPListeners { get; set; }
+        public List<ListenerTcp> TCPListeners { get; set; } = new List<ListenerTcp>();
 
         public void StartHttpListener(NewHttpListenerRequest request)
         {
@@ -28,6 +28,7 @@ namespace TeamServer.Controllers
                 Listener = listener
             };
             HTTPListeners.Add(module);
+            module.Init();
             module.Start();
 
         }

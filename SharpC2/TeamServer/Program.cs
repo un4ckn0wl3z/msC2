@@ -28,7 +28,8 @@ namespace TeamServer
 
             ServerController = new ServerController();
             // do more setup
-            ServerController.Start();
+            // ServerController.Start();
+
 
 
 

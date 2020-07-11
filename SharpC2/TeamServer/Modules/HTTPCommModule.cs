@@ -19,12 +19,13 @@ namespace TeamServer.Modules
         public void Init()
         {
             Socket = new Socket(SocketType.Stream, ProtocolType.IP);
-            Socket.Listen(20);
+            
         }
 
         public void Start()
         {
             Socket.Bind(new IPEndPoint(IPAddress.Parse("0.0.0.0"), Listener.BindPort));
+            Socket.Listen(20);
         }
 
         public void Stop()

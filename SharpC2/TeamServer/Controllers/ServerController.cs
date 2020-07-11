@@ -13,6 +13,7 @@ namespace TeamServer.Controllers
         public ServerController()
         {
             ServerStatus = ServerStatus.Starting;
+            ListenerController = new ListenerController();
         }
 
         public void Start()
