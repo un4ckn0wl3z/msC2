@@ -30,10 +30,17 @@ namespace TeamServer.Controllers
             {
                 result.Result = ClientAuthenticationResult.AuthResult.LoginSucess;
                 result.Token = AuthenticationController.GenerateAuthenticationToken(request.Nick);
+
+                AddNewClient(request.Nick);
             }
 
             return result;
 
+        }
+
+        private static void AddNewClient(string nick)
+        {
+            _connectedClients.Add(nick);
         }
 
     }
