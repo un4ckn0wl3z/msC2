@@ -38,6 +38,11 @@ namespace TeamServer.Controllers
 
         }
 
+        public static List<string> GetConnectedClient()
+        {
+            return _connectedClients;
+        }
+
         private static void AddNewClient(string nick)
         {
             _connectedClients.Add(nick);

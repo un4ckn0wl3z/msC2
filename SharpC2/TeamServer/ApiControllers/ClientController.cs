@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TeamServer.Models;
 
@@ -9,18 +10,20 @@ using TeamServer.Models;
 
 namespace TeamServer.ApiControllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientController : ControllerBase
     {
         // GET: api/<ClientController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<string> GetConnectedClient()
         {
-            return new string[] { "value1", "value2" };
+            return Controllers.ClientController.GetConnectedClient();
         }
 
         // POST api/<ClientController>
+        [AllowAnonymous]
         [HttpPost]
         public ClientAuthenticationResult ClientLogin([FromBody] ClientAuthenticationRequest request)
         {
