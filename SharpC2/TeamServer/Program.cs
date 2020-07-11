@@ -12,6 +12,9 @@ namespace TeamServer
 {
     public class Program
     {
+
+        public static ServerController ServerController { get; private set; }
+
         public static void Main(string[] args)
         {
 
@@ -22,6 +25,12 @@ namespace TeamServer
             }
 
             AuthenticationController.SetPassword(args[0]);
+
+            ServerController = new ServerController();
+            // do more setup
+            ServerController.Start();
+
+
 
             CreateHostBuilder(args).Build().Run();
         }
