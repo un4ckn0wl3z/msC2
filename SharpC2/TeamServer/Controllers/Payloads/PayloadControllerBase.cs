@@ -89,7 +89,8 @@ namespace TeamServer.Controllers
             var srcFiles = Directory.GetFiles(srcPath, "*.cs", SearchOption.AllDirectories);
             foreach (var filePath in srcFiles)
             {
-                if (filePath.Contains("AssemblyInfo.cs", StringComparison.OrdinalIgnoreCase)) { continue; }
+                if (filePath.Contains("AssemblyInfo.cs", StringComparison.OrdinalIgnoreCase)
+                    || filePath.Contains("AssemblyAttributes.cs", StringComparison.OrdinalIgnoreCase)) { continue; }
                 var fileName = Path.GetFileName(filePath);
                 var finalPath = tempPath + Path.DirectorySeparatorChar + fileName;
                 File.Copy(filePath, finalPath, true);

@@ -54,22 +54,28 @@ namespace TeamServer.Controllers
             InsertConnectPort();
 
 
-            return Compiler.Compile(compilerRequest);
+            var result = Compiler.Compile(compilerRequest);
+
+            RemoveTempDirectory(TempPath);
+
+            return result;
 
         }
 
         private void InsertConnectAddress()
         {
-            var src = File.ReadAllText(TempPath + Path.DirectorySeparatorChar + "Program.cs");
+            var srcPath = TempPath + Path.DirectorySeparatorChar + "Program.cs";
+            var src = File.ReadAllText(srcPath);
             var newSrc = src.Replace("<<ConnectAddress>>", Listener.ConnectAddress);
-            File.WriteAllText(src, newSrc);
+            File.WriteAllText(srcPath, newSrc);
         }
 
         private void InsertConnectPort()
         {
-            var src = File.ReadAllText(TempPath + Path.DirectorySeparatorChar + "Program.cs");
+            var srcPath = TempPath + Path.DirectorySeparatorChar + "Program.cs";
+            var src = File.ReadAllText(srcPath);
             var newSrc = src.Replace("<<ConnectPort>>", Listener.ConnectPort.ToString());
-            File.WriteAllText(src, newSrc);
+            File.WriteAllText(srcPath, newSrc);
         }
     }
 }

@@ -71,24 +71,25 @@ namespace TeamServer.Agents
                 .ToList();
             List<SyntaxTree> compilationTrees = sourceSyntaxTrees.Select(S => S.SyntaxTree).ToList();
 
-            SyntaxTree sourceTree = CSharpSyntaxTree.ParseText(request.Source, new CSharpParseOptions());
-            compilationTrees.Add(sourceTree);
+            // SyntaxTree sourceTree = CSharpSyntaxTree.ParseText(request.Source, new CSharpParseOptions());
+            // compilationTrees.Add(sourceTree);
 
             // Use specified OutputKind and Platform
             CSharpCompilationOptions options = new CSharpCompilationOptions(outputKind: request.OutputKind, optimizationLevel: OptimizationLevel.Release, platform: request.Platform);
             // Compile to obtain SemanticModel
             CSharpCompilation compilation = CSharpCompilation.Create(
-                request.AssemblyName == null ? Path.GetRandomFileName() : request.AssemblyName,
+                request.AssemblyName,
                 compilationTrees,
                 request.References.Where(R => R.Framework == request.TargetDotNetVersion).Where(R => R.Enabled).Select(R =>
                 {
-                    string folder = (request.TargetDotNetVersion == DotNetVersion.Net35 ? request.ReferenceDirectory + "net35" + Path.DirectorySeparatorChar : request.ReferenceDirectory + "net40" + Path.DirectorySeparatorChar);
-                    return MetadataReference.CreateFromFile(folder + R.File);
+                    // string folder = (request.TargetDotNetVersion == DotNetVersion.Net35 ? request.ReferenceDirectory + "net35" + Path.DirectorySeparatorChar : request.ReferenceDirectory + "net40" + Path.DirectorySeparatorChar);
+                    return MetadataReference.CreateFromFile(request.ReferenceDirectory + Path.DirectorySeparatorChar + R.File);
                 }).ToList(),
                 options
             );
 
             // Perform source code optimization, removing unused types
+            /*
             if (request.Optimize)
             {
                 // Find all Types used by the generated compilation
@@ -128,22 +129,13 @@ namespace TeamServer.Agents
                     options
                 );
             }
-
+            */
             // Emit compilation
             EmitResult emitResult;
             byte[] ILbytes = null;
             using (var ms = new MemoryStream())
             {
-                emitResult = compilation.Emit(
-                    ms,
-                    manifestResources: request.EmbeddedResources.Where(ER =>
-                    {
-                        return request.Platform == Platform.AnyCpu || ER.Platform == Platform.AnyCpu || ER.Platform == request.Platform;
-                    }).Where(ER => ER.Enabled).Select(ER =>
-                    {
-                        return new ResourceDescription(ER.Name, () => File.OpenRead(request.ResourceDirectory + ER.File), true);
-                    }).ToList()
-                );
+                emitResult = compilation.Emit(ms);
                 if (emitResult.Success)
                 {
                     ms.Flush();

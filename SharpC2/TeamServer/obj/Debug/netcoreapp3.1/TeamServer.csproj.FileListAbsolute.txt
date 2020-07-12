@@ -68,3 +68,4 @@ C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
 C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\obj\Debug\netcoreapp3.1\TeamServer.csprojAssemblyReference.cache
