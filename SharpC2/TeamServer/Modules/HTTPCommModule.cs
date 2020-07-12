@@ -92,15 +92,18 @@ namespace TeamServer.Modules
 
             if (bytesRead > 0)
             {
-                SendData(handler);
+                SendData(handler, data);
             }
 
 
 
         }
 
-        private void SendData(Socket handler)
+        private void SendData(Socket handler, byte[] dataReceived)
         {
+            // var valid =  ValidateRequest(dataReceived)
+            // if (valid) { SendAgentTask } else { SendSomeJunk }
+
             var response = new StringBuilder("HTTP/1.1 200 OK\r\n");
             response.Append("Content-Type: plain/text\r\n\r\n");
             response.Append("Hello from SharpC2");
