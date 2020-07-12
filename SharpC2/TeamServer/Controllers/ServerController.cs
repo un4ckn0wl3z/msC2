@@ -8,12 +8,12 @@ namespace TeamServer.Controllers
     public class ServerController
     {
         public ServerStatus ServerStatus { get; private set; }
-        public ListenerControllerBase ListenerControllerBase { get; private set; }
+        public ListenerControllerBase ListenerController { get; private set; }
 
         public ServerController()
         {
             ServerStatus = ServerStatus.Starting;
-            ListenerControllerBase = new ListenerControllerBase();
+            ListenerController = new ListenerControllerBase();
         }
 
         public void Start()

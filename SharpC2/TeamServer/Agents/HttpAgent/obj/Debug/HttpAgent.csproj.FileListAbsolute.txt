@@ -1,0 +1,6 @@
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\Agents\HttpAgent\bin\Debug\HttpAgent.exe
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\Agents\HttpAgent\bin\Debug\HttpAgent.pdb
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\Agents\HttpAgent\obj\Debug\HttpAgent.csprojAssemblyReference.cache
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\Agents\HttpAgent\obj\Debug\HttpAgent.csproj.CoreCompileInputs.cache
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\Agents\HttpAgent\obj\Debug\HttpAgent.exe
+C:\Users\anuwat\Documents\git-repos\msC2\SharpC2\TeamServer\Agents\HttpAgent\obj\Debug\HttpAgent.pdb

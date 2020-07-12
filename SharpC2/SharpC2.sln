@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamServer", "TeamServer\TeamServer.csproj", "{05D3C59E-0F7E-4089-A0D2-14D81950C789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamServer", "TeamServer\TeamServer.csproj", "{05D3C59E-0F7E-4089-A0D2-14D81950C789}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamServer.Tests", "TeamServer.Tests\TeamServer.Tests.csproj", "{20C75086-1EE6-480E-A49C-6AE4BD66579F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamServer.Tests", "TeamServer.Tests\TeamServer.Tests.csproj", "{20C75086-1EE6-480E-A49C-6AE4BD66579F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpAgent", "TeamServer\Agents\HttpAgent\HttpAgent.csproj", "{7318D0FA-C3F1-4FA1-9464-28D0035189E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{20C75086-1EE6-480E-A49C-6AE4BD66579F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20C75086-1EE6-480E-A49C-6AE4BD66579F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20C75086-1EE6-480E-A49C-6AE4BD66579F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7318D0FA-C3F1-4FA1-9464-28D0035189E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7318D0FA-C3F1-4FA1-9464-28D0035189E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7318D0FA-C3F1-4FA1-9464-28D0035189E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7318D0FA-C3F1-4FA1-9464-28D0035189E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

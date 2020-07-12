@@ -21,28 +21,28 @@ namespace TeamServer.ApiControllers
         [HttpGet]
         public IEnumerable<ListenerBase> GetListeners()
         {
-            return Program.ServerController.ListenerControllerBase.GetListeners();
+            return Program.ServerController.ListenerController.GetListeners();
         }
 
         // POST api/<ListenerController>
         [HttpPost("http")]
         public ListenerHttp NewHttpListener([FromBody] NewHttpListenerRequest request)
         {
-            return Program.ServerController.ListenerControllerBase.StartHttpListener(request);
+            return Program.ServerController.ListenerController.StartHttpListener(request);
         }
 
         // POST api/<ListenerController>
         [HttpPost("tcp")]
         public ListenerTcp NewTcpListener([FromBody] NewTcpListenerRequest request)
         {
-            return Program.ServerController.ListenerControllerBase.StartTcpListener(request);
+            return Program.ServerController.ListenerController.StartTcpListener(request);
         }
 
         // DELETE api/<ListenerController>/5
         [HttpDelete("{id}/Type/{type}")]
         public void StopListener(string id, ListenerType type)
         {
-            Program.ServerController.ListenerControllerBase.StopListener(id, type);
+            Program.ServerController.ListenerController.StopListener(id, type);
         }
     }
 }
