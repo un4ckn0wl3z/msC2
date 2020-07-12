@@ -12,5 +12,7 @@ namespace TeamServer.Models
         public string ConnectAddress { get; set; }
 
         public int ConnectPort { get; set; }
+
+        public HttpTrafficProfile TrafficProfile { get; set; }
     }
 }

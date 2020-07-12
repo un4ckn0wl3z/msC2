@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using TeamServer.Listeners;
 using TeamServer.Models;
@@ -15,12 +16,18 @@ namespace TeamServer.Controllers.Listeners
 
         public ListenerHttp StartHttpListener(NewHttpListenerRequest request)
         {
+            if(!IPAddress.TryParse(request.ConnectAddress, out _))
+            {
+                throw new ArgumentException("Invalid IP Address");
+            }
+
             var listener = new ListenerHttp
             {
                 BindPort = request.BindPort,
                 ConnectAddress = request.ConnectAddress,
                 ConnectPort = request.ConnectPort,
-                Type = ListenerType.Http
+                Type = ListenerType.Http,
+                TrafficProfile = request.TrafficProfile ?? new HttpTrafficProfile()
             };
 
             var module = new HTTPCommModule

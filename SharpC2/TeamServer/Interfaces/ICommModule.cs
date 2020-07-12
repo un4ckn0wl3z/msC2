@@ -17,4 +17,10 @@ namespace TeamServer.Interfaces
 
         // bool RecvData();
     }
+
+    public enum ModuleStatus
+    {
+        Running,
+        Stopped
+    }
 }
