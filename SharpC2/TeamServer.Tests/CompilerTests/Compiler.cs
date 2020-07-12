@@ -78,5 +78,31 @@ namespace TeamServer.Tests.CompilerTests
 
         }
 
+
+
+        [Fact]
+        public async void _09_GenerateHttpAgentPayloadFailed()
+        {
+            var res = await TestClient.ClientLogin(TeamServer.Helpers.GeneratePsudoRandomString(6), "anuwat1337");
+
+            var payloadRequest = new PayloadRequest
+            {
+                ListenerId = "bitch!",
+                OutputType = OutputType.Exe,
+                TargetFramework = TargetFramework.Net40
+            };
+
+
+            var apiReq = await TestClient.HttpClient.PostAsync("api/Payload", Helpers.Serialise(payloadRequest));
+            var resultAsync = await apiReq.Content.ReadAsStringAsync();
+
+            var result = Helpers.Deserialise<PayloadResponse>(resultAsync);
+
+            Assert.Equal(CompilerStatus.Fail, result.CompilerStatus);
+            Assert.NotNull(result.ErrorMessage);
+            Assert.Null(result.EncodedAssembly);
+
+        }
+
     }
 }
