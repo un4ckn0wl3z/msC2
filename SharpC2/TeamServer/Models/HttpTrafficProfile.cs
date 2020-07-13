@@ -16,13 +16,13 @@ namespace TeamServer.Models
         {
             public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
 
-            public OutputTrafficProfile OutputProfile { get; set; } 
+            public OutputTrafficProfile OutputProfile { get; set; } = new OutputTrafficProfile();
 
             public class OutputTrafficProfile
             {
                 public DataTransform DataTransform { get; set; } = DataTransform.Raw;
-                public string PrependData { get; set; } = default;
-                public string AppendData { get; set; } = default;
+                public string PrependData { get; set; } = "";
+                public string AppendData { get; set; } = "";
             }
         }
 
