@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -59,9 +60,9 @@ namespace TeamServer.Modules
                     }
                     );
             }
-            catch 
+            catch
             {
-                
+
             }
         }
 
@@ -101,15 +102,108 @@ namespace TeamServer.Modules
 
         private void SendData(Socket handler, byte[] dataReceived)
         {
-            // var valid =  ValidateRequest(dataReceived)
-            // if (valid) { SendAgentTask } else { SendSomeJunk }
+
+            var agentTask = GetAgentTask(dataReceived);
+            var transformData = TransformOutputData(agentTask);
 
             var response = new StringBuilder("HTTP/1.1 200 OK\r\n");
-            response.Append("Content-Type: plain/text\r\n\r\n");
-            response.Append("Hello from SharpC2");
 
-            var dataToSend = Encoding.UTF8.GetBytes(response.ToString());
+            foreach (var header in Listener.TrafficProfile.ServerProfile.Headers)
+            {
+                response.Append(string.Format("{0}: {1}\r\n", header.Key, header.Value));
+            }
+
+            response.Append(string.Format("Content-Length: {0}\r\n", transformData.Length));
+            response.Append(string.Format("Date: {0}\r\n", DateTime.UtcNow.ToString("ddd, d MMM yyyy HH:mm:ss UTC")));
+
+            response.Append("\r\n");
+            var headers = Encoding.UTF8.GetBytes(response.ToString());
+
+            var dataToSend = new byte[transformData.Length + headers.Length];
+
+            Buffer.BlockCopy(headers, 0, dataToSend, 0, headers.Length);
+            Buffer.BlockCopy(transformData, 0, dataToSend, headers.Length, transformData.Length);
+
             handler.BeginSend(dataToSend, 0, dataToSend.Length, 0, new AsyncCallback(SendCallback), handler);
+
+        }
+
+
+        private byte[] GetAgentTask(byte[] data)
+        {
+            return Encoding.UTF8.GetBytes("Hello from SharpC2");
+        }
+
+
+        private byte[] TransformOutputData(byte[] data)
+        {
+            // Data=AAAAAA
+            // 0x
+            var transformedData = new byte[] { };
+            var preppendData = new byte[] { };
+            var appendData = new byte[] { };
+
+            switch (Listener.TrafficProfile.ServerProfile.OutputProfile.DataTransform)
+            {
+                case Models.HttpTrafficProfile.DataTransform.Raw:
+                    transformedData = data;
+                    break;
+                case Models.HttpTrafficProfile.DataTransform.Base64:
+                    transformedData = Encoding.UTF8.GetBytes(Convert.ToBase64String(data));
+                    break;
+                default:
+                    break;
+            }
+
+            if (!string.IsNullOrEmpty(Listener.TrafficProfile.ServerProfile.OutputProfile.PrependData))
+            {
+                if (Listener.TrafficProfile.ServerProfile.OutputProfile.PrependData.Substring(0, 2).Equals("\\x"))
+                {
+                    // parse byte
+                    preppendData = ParseBytes(Listener.TrafficProfile.ServerProfile.OutputProfile.PrependData);
+                }
+                else
+                {
+                    preppendData = Encoding.UTF8.GetBytes(Listener.TrafficProfile.ServerProfile.OutputProfile.PrependData);
+                }
+            }
+            //------------
+            if (!string.IsNullOrEmpty(Listener.TrafficProfile.ServerProfile.OutputProfile.AppendData))
+            {
+                if (Listener.TrafficProfile.ServerProfile.OutputProfile.AppendData.Substring(0, 2).Equals("\\x"))
+                {
+                    // parse byte
+                    appendData = ParseBytes(Listener.TrafficProfile.ServerProfile.OutputProfile.AppendData);
+                }
+                else
+                {
+                    appendData = Encoding.UTF8.GetBytes(Listener.TrafficProfile.ServerProfile.OutputProfile.AppendData);
+                }
+            }
+            // ====
+            var result = new byte[preppendData.Length + transformedData.Length + appendData.Length];
+            Buffer.BlockCopy(preppendData, 0, result, 0, preppendData.Length);
+            Buffer.BlockCopy(transformedData, 0, result, preppendData.Length, transformedData.Length);
+            Buffer.BlockCopy(appendData, 0, result, (preppendData.Length + transformedData.Length), appendData.Length);
+
+            return result;
+        }
+
+
+        private byte[] ParseBytes(string data)
+        {
+            var bytes = new List<byte>();
+            var split = data.Split("\\x"); // \xff\xff\xff -> ff ff ff
+
+            foreach (var byteString in split)
+            {
+                if (!string.IsNullOrEmpty(byteString))
+                {
+                    byte.TryParse(byteString, NumberStyles.HexNumber, null, out byte parsedByte);
+                    bytes.Add(parsedByte);
+                }
+            }
+            return bytes.ToArray();
 
         }
 
