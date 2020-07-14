@@ -30,11 +30,19 @@ namespace TeamServer.Modules
 
         public ModuleStatus ModuleStatus { get; private set; } = ModuleStatus.Stopped;
 
+        private byte[] PrependData { get; set; } = new byte[] { };
+
+        private byte[] AppendData { get; set; } = new byte[] { };
+
+
         private static ManualResetEvent AllDone = new ManualResetEvent(false);
 
         public void Init()
         {
             Socket = new Socket(SocketType.Stream, ProtocolType.IP);
+            PrependData = ProcessOutputData(Listener.TrafficProfile.ServerProfile.OutputProfile.PrependData);
+            AppendData = ProcessOutputData(Listener.TrafficProfile.ServerProfile.OutputProfile.AppendData);
+
 
         }
 
@@ -187,6 +195,28 @@ namespace TeamServer.Modules
             Buffer.BlockCopy(appendData, 0, result, (preppendData.Length + transformedData.Length), appendData.Length);
 
             return result;
+        }
+
+
+
+        private byte[] ProcessOutputData(string data)
+        {
+
+            var result = new byte[] { };
+            if (data != default)
+            {
+                if(data.Substring(0, 2).Equals("\\x"))
+                {
+                    result = ParseBytes(data);
+                }
+                else
+                {
+                    result = Encoding.UTF8.GetBytes(data);
+                }
+            }
+
+            return result;
+
         }
 
 
